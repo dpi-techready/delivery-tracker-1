@@ -16,6 +16,27 @@
   </head>
 
   <body>
+      <!-- conditional for user sessions/rendering links -->
+      <% if @current_user != nil %>
+
+      <a href="/">Your delivery tracker</a>
+      |
+      <a href="/edit_user_profile">Edit profile</a>
+      |
+      <a href="/user_sign_out">Sign Out</a>
+    
+      <% else %>
+
+      <a href="/user_sign_in">Sign In</a>
+      |
+      <a href="/user_sign_up">Sign up</a>
+
+      <% end %>
+
+    <!-- notice and alert showing in all the pages -->
+    <p style="color: green"><%= notice %></p> 
+    <p style="color: red"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>
