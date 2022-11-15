@@ -27,7 +27,7 @@ class DeliveriesController < ApplicationController
 
     if the_delivery.valid?
       the_delivery.save
-      redirect_to("/deliveries", { :notice => "Delivery created successfully." })
+      redirect_to("/deliveries", { :notice => "Added to list" })
     else
       redirect_to("/deliveries", { :alert => the_delivery.errors.full_messages.to_sentence })
     end
@@ -45,9 +45,11 @@ class DeliveriesController < ApplicationController
 
     if the_delivery.valid?
       the_delivery.save
-      redirect_to("/deliveries/#{the_delivery.id}", { :notice => "Delivery updated successfully."} )
+      # redirect_to("/deliveries/#{the_delivery.id}", { :notice => "Delivery updated successfully."} )
+      redirect_to("/", { :notice => "Delivery updated successfully."} )
     else
-      redirect_to("/deliveries/#{the_delivery.id}", { :alert => the_delivery.errors.full_messages.to_sentence })
+      # redirect_to("/deliveries/#{the_delivery.id}", { :alert => the_delivery.errors.full_messages.to_sentence })
+      redirect_to("/", { :alert => the_delivery.errors.full_messages.to_sentence })
     end
   end
 
@@ -57,6 +59,7 @@ class DeliveriesController < ApplicationController
 
     the_delivery.destroy
 
-    redirect_to("/deliveries", { :notice => "Delivery deleted successfully."} )
+    # redirect_to("/deliveries", { :notice => "Delivery deleted successfully."} )
+    redirect_to("/", { :notice => "Delivery deleted successfully."} )
   end
 end
